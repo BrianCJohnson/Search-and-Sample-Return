@@ -19,7 +19,7 @@ I made the following modifications to the test code (other than process_image() 
 
 3. Added examples of Original, Warped, Nav Thresholded and Rock Thresholded images
 
-   ![Orig_warp_threshed_rock](C:\Users\Brian\Documents\2018\Udacity\Robot\Submission\Orig_warp_threshed_rock.JPG)
+   ![Orig_warp_threshed_rock](.\Orig_warp_threshed_rock.JPG)
 
 
 #### 2. Populate the `process_image()` function with the appropriate analysis steps to map pixels identifying navigable terrain, obstacles and rock samples into a worldmap.  Run `process_image()` on your test data using the `moviepy` functions provided to create video output of your result.
@@ -97,11 +97,11 @@ I ran the simulator at the default resolution of 1024x768 at 'good' quality. Wit
 
 ##### Areas for improvement
 
-######Compensation of Camera Pitch and Roll
+###### Compensation of Camera Pitch and Roll
 
 Using the warped image with a fixed transform based on `src` and `dst` to map the navigable areas assumes that the camera does not pitch or roll. When it inevitably does the warped image does not accurately match the ground. I was thinking that it would be good to warp based on the actual dynamic`Rover.pitch` and `Rover.roll` values rather than the fixed `src` and `dst` values. This could effectively compensate for the camera's pitch and roll and produce an accurate warped image and optimize  map fidelity.
 
-######Wall Following
+###### Wall Following
 
 Wall following can be an effective strategy to insure that a robot maps a simply connected region. If we ignore the rock obstacles in the two open locations this "world" is simply connected and following the right or left hand wall continuously will insure the rover to navigate all regions. As an added bonus all the rock samples are located near the walls. For this to work properly there might have to be an initial "wall-alignment" mode where the rover drove toward the wall and properly aligned itself parallel to the wall.
 
@@ -111,11 +111,11 @@ I tried to have the rover follow the left wall by biasing the steering toward th
 
 In some cases it is desirable to make a sharp turn but the rover velocity is too great. It would be good to recognize the desire to make a sharp turn and slow the rover to a speed appropriate for the turn. This could help accurate steering toward a goal or wall following and avoid overshooting or missing a sharp turn and optimize total time to search the "world".
 
-######Return to start
+###### Return to start
 
 This was suggested as a potential challenge that I did not implement.
 
-######Improve Rock Collection
+###### Improve Rock Collection
 
 Sometimes the rover is at a bad angle to pick up a rock near the wall due to curvature of the wall or irregularities of the ground by the wall. In these cases it would be ideal if the rover would drive away from the rock sample and wall, then turn around at a point were in line with the rock sample and perpendicular to the wall before approaching the rock sample to pick it up. After it picked up the rock sample it should re-align itself with the wall at that point to continue wall following. This would improve the percentage of rocks successfully collected and help optimize time by insuring that it doesn't get stuck unsuccessfully trying to pick up one rock over and over.
 
