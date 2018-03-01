@@ -19,7 +19,7 @@ I made the following modifications to the test code (other than process_image() 
 
 3. Added examples of Original, Warped, Nav Thresholded and Rock Thresholded images
 
-   ![Orig_warp_threshed_rock](.\Orig_warp_threshed_rock.JPG)
+   ![Orig_warp_threshed_rock](./Orig_warp_threshed_rock.JPG)
 
 
 #### 2. Populate the `process_image()` function with the appropriate analysis steps to map pixels identifying navigable terrain, obstacles and rock samples into a worldmap.  Run `process_image()` on your test data using the `moviepy` functions provided to create video output of your result.
